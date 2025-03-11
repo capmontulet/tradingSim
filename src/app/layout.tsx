@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono as FontMono, Inter as FontSans } from "next/font/google"
+
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fontSans = FontSans({
   subsets: ["latin"],
-});
+  variable: "--font-sans",
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const fontMono = FontMono({
   subsets: ["latin"],
-});
+  variable: "--font-mono",
+})
 
 export const metadata: Metadata = {
-  title: "Crypto Breakdown",
+  title: "Thomas Stanley - Portfolio",
   description: "A trading simulator by Thomas Stanley",
 };
 
@@ -26,14 +27,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${fontSans.variable} ${fontMono.variable} bg-background overscroll-none font-sans antialiased`}
       >
         <ThemeProvider 
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
-            >{children}</ThemeProvider>
+            >
+              <div vaul-drawer-wrapper="">
+              <div className="relative flex min-h-svh flex-col bg-background">
+                {children}
+              </div>
+            </div></ThemeProvider>
       </body>
     </html>
   );

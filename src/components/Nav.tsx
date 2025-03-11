@@ -1,10 +1,20 @@
 import Image from "next/image";
 import { ModeToggle } from "@/components/ui/toggleView";
 
+import {
+    NavigationMenu,
+    NavigationMenuContent,
+    NavigationMenuIndicator,
+    NavigationMenuItem,
+    NavigationMenuLink,
+    NavigationMenuList,
+    NavigationMenuTrigger,
+    NavigationMenuViewport,
+  } from "@/components/ui/navigation-menu"
+
 export default function Nav() {
 return(
     <header>
-        <nav>
             <ul className="flex items-center justify-between">
                 <li>
                 <a
@@ -15,17 +25,31 @@ return(
                           >
                             <Image
                               className="dark:invert"
-                              src="/vercel.svg"
+                              src="/vercel2.svg"
                               alt="Vercel logomark"
-                              width={20}
+                              width={100}
                               height={20}
                             />
-                            Trading Sim
                           </a>
+                </li>
+                <li>
+                <NavigationMenu>
+                    <NavigationMenuList>
+                        <NavigationMenuItem>
+                            <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
+                        </NavigationMenuItem>
+
+                        <NavigationMenuItem>
+                            <NavigationMenuTrigger>Item two</NavigationMenuTrigger>
+                            <NavigationMenuContent>
+                                <NavigationMenuLink>Link2</NavigationMenuLink>
+                            </NavigationMenuContent>
+                        </NavigationMenuItem>
+                    </NavigationMenuList>
+                </NavigationMenu>
                 </li>
                 <li><ModeToggle /></li>
             </ul>    
-        </nav>
     </header>
 )
 }

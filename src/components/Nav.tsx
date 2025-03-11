@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ModeToggle } from "@/components/ui/toggleView";
 
 export default function Nav() {
 return(
@@ -22,6 +23,7 @@ return(
                             Trading Sim
                           </a>
                 </li>
+                <li><ModeToggle /></li>
             </ul>    
         </nav>
     </header>
